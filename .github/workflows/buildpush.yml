@@ -28,7 +28,6 @@ jobs:
         with:
           push: true
           tags: tivanovic/docker-python-project:latest
-      - name: Test
-        run: docker run --network container:webapp-frontend appropriate/curl -s --retry 10 --retry-connrefused http://localhost:5000/
+
 
 
