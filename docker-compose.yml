@@ -1,15 +1,20 @@
 version: '3'
 services:
+
   web:
-    container_name: myapp-python
-    image: myapp-python
+  
     build: .
+    image: myapp-python
+    container_name: myapp-python
     ports:
       - "5000:5000"
+    enviroment:
+      -MONGO_HOST=mongo
     links: 
       - mongo
   mongo:
+
+    image: mongo:latest
     container_name: mongo
-    image: mongo
     ports:
       - '27017-27017'
