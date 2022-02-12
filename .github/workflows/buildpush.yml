@@ -18,10 +18,12 @@ jobs:
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-        run:
-          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      run:
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       
     - name: Build the Docker image
+    - uses: actions/build-push-action@v2
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: Push the Docker image
+    - uses: docker/build-push-action@v2
       run: docker push tivanovic/docker-python-project
