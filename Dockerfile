@@ -10,3 +10,4 @@ RUN pip install -r requirements.txt
 COPY . .
 
 CMD ["flask", "run"]
+CMD ["echo", "Created an image."]
